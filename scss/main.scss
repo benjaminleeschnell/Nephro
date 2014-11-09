@@ -1,0 +1,413 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+
+
+$font-stack:    Futura, sans-serif;
+
+$primary-color:  #1858b5;
+
+$secondary-color: #3068bd;
+
+$primary-font-size: 2em;
+
+$secondary-font-size: 1.2em;
+
+/***********************************************
+partial.html
+***********************************************/
+
+#top {
+	position: relative;
+	height: 250px;
+	width: 100%;
+	background-color: $primary-color;
+	img {
+		display: block;
+		float: left;
+		width: 60%;
+		padding: 4% 3%;
+	}
+}
+
+.centered-navigation {
+	position: absolute;
+	bottom: 0;
+  $centered-navigation-padding: 1em;
+  $centered-navigation-logo-height: 2em;
+  $centered-navigation-background: $primary-color;
+  $centered-navigation-color: transparentize(white, 0.3);
+  $centered-navigation-color-hover: white;
+  $centered-navigation-height: 60px;
+  $centered-navigation-item-padding: 1em;
+  $centered-navigation-submenu-padding: 1em;
+  $centered-navigation-submenu-width: 12em;
+  $centered-navigation-item-nudge: 2.2em;
+  $horizontal-bar-mode: $large-screen;
+
+  background-color: $centered-navigation-background;
+  border-bottom: 1px solid darken($centered-navigation-background, 6);
+  font-family: $font-stack;
+  height: $centered-navigation-height;
+  width: 100%;
+  z-index: 9999;
+  
+  // Mobile view
+
+  .mobile-logo {
+    display: inline;    
+    float: left;
+    max-height: $centered-navigation-height;
+    padding-left: $centered-navigation-padding;
+
+    img {
+      max-height: $centered-navigation-height;
+      opacity: .6;
+      padding: .8em 0;
+    }
+
+    @include media($horizontal-bar-mode) {
+      display: none;
+    }
+  }
+
+  .centered-navigation-menu-button {
+    color: $centered-navigation-color;
+    display: block;
+    float: right;
+    font-weight: 700;
+    line-height: $centered-navigation-height;
+    margin: 0;
+    padding-right: $centered-navigation-submenu-padding;
+    text-transform: uppercase;
+
+    @include media ($horizontal-bar-mode) {
+      display: none;
+    }
+
+    &:hover {
+      color: $centered-navigation-color-hover;
+    }
+  }
+
+  // Nav menu
+
+  .centered-navigation-wrapper {
+    @include outer-container;
+    @include clearfix;
+    position: relative;
+    z-index: 999;
+  }
+
+  ul.centered-navigation-menu {    
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    z-index: 99999;
+
+    @include media ($horizontal-bar-mode) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  // The nav items
+
+  .nav-link:first-child {
+    @include media($horizontal-bar-mode) {
+      margin-left: $centered-navigation-item-nudge;
+    }
+  }
+
+  ul li.nav-link {
+    background: $centered-navigation-background;
+    display: block;
+    line-height: $centered-navigation-height;
+    overflow: hidden;
+    padding-right: $centered-navigation-submenu-padding;
+    text-align: right;
+    width: 100%;
+    z-index: 9999;
+
+    @include media($horizontal-bar-mode) {
+      background: transparent;
+      display: inline;
+      line-height: $centered-navigation-height;  
+
+      a {
+        padding-right: $centered-navigation-item-padding;
+      }
+    }
+    
+    a {
+      color: $centered-navigation-color;
+      display: inline-block;
+
+
+      &:hover {
+        color: $centered-navigation-color-hover;
+      }
+    }
+  }
+
+  li.logo.nav-link {
+    display: none;
+    line-height: 0;
+
+    @include media($large-screen) {
+      display: inline;
+    }
+  }
+
+  .logo img {
+    margin-bottom: -$centered-navigation-logo-height / 3;
+    max-height: $centered-navigation-logo-height;
+    opacity: .6;
+  }
+}
+    
+  
+
+
+/***********************************************
+index.html and physicians.html and videos.html
+***********************************************/
+
+#tagline {
+	height: 800px;
+	position: relative;
+	width: 100%;
+	background: url('../img/background.jpg') no-repeat center center fixed;
+	background-size: contain;
+}
+	
+.line {
+	position: absolute;
+	left: 8%;
+	bottom: 8%;
+	p {
+		color: $primary-color;
+		font-size: $primary-font-size;
+		font-weight: bold;
+		max-width: 740px;
+		border-left-style: solid;
+		border-width: 15px;
+		padding-left: 12px;
+	}
+}
+
+#disease {
+	max-height: 1276px;
+	width: 100%;
+	background: url('../img/subeducation.jpg') no-repeat center center fixed;
+	background-size: contain;
+	padding: 20% 0 20% 0;
+}
+
+.disease {
+	padding: 4% 4%;
+	p {
+		color: $primary-color;
+		font-size: 3em;
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, .9);
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
+		float: center;
+		max-width: 580px;
+	}
+}
+
+#intro {
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5% 0;
+	h1 {
+		font-size: $primary-font-size;
+		color: $primary-color;
+		font-style: $font-stack;
+	}
+	p {
+		font-size: $secondary-font-size;
+		color: $secondary-font-size;
+		font-style: $font-stack;
+	}
+}
+
+#videos {
+	
+	h1 {
+		font-size: $primary-font-size;
+		color: $primary-color; }
+	
+	li {
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: 5%;
+	}
+
+}
+
+/****************************************
+index.html Bottom Paragrahps
+*****************************************/
+
+section {
+ 
+  @include outer-container;
+  margin: 10% auto;
+  font-size: $secondary-font-size;
+  
+  aside {
+    @include span-columns(6);
+      }
+  
+  article {
+    @include span-columns(6);
+    span {font-weight: bold;}
+  }
+}
+
+$mobile: new-breakpoint(max-width 800px 4);
+ 
+section {
+  @include outer-container;
+  aside {
+    @include span-columns(6);
+    @include media($mobile) {
+      @include span-columns(6);
+    }
+  }
+  article {
+    @include span-columns(6);
+    @include media($mobile) {
+      @include span-columns(6);
+    }
+  }
+}
+
+/**************************************
+physicians.html
+***************************************/
+
+#physicians {
+	width: 100%;
+	height: 800px;
+	background: url('../img/education.jpg') no-repeat center center fixed;
+}
+
+#overview {
+	padding: 3% 0;
+	max-width: 1020px;
+
+	h1 {
+		color: $primary-color;
+		font-size: $primary-font-size;
+		padding-left: 10%;
+	}
+
+	p {
+		font-size: $secondary-font-size;
+		padding-left: 10%;
+	}
+}
+
+/***********************************
+Physicians.html Video Gallery
+***********************************/
+
+#gallery {
+
+	ul {
+		padding: 0 0 10% 6%;
+	}
+	li {
+		display: inline-block;
+		float: center;
+		padding-right: 6px;
+	}
+} 
+
+.box {
+  cursor: pointer;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+
+  img {
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+	}
+}
+
+.box .overbox {
+  background-color: rgba(0,0,0,.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  z-index: 100;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+}
+
+.box:hover .overbox { opacity: .8; }
+
+.box .overtext {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(40px);
+  -webkit-transform: translateY(40px);
+}
+
+.box .title {
+  font-size: $secondary-font-size;
+  opacity: 0;
+  transition-delay: 0.1s;
+  transition-duration: 0.2s;
+}
+
+.box:hover .title,
+.box:focus .title {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+}
+
+.box .text {
+  font-size: 0.8em;
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.box:hover .text,
+.box:focus .text {
+  opacity: 1;
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+}
